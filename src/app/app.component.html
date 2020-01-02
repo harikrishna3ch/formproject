@@ -1,0 +1,61 @@
+<div class="container">
+    <h1>form gourp</h1>
+    <form [formGroup]="userForm" (ngSubmit)="onsubmit()">
+
+        <div class="form-group">
+            <label> Name: </label>
+            <input type="text" #nameRef  class="form-control" formControlName="name">
+            <div *ngIf="userForm.controls['name'].hasError('required')">
+                please enter name
+            </div>
+            <div *ngIf="userForm.controls['name'].hasError('minlength')">
+                please enter 4
+            </div>
+        </div>
+        <div class="form-group">
+            <label> conact: </label>
+            <input type="text"  class="form-control" formControlName="contact">
+        </div>
+
+<!-- <div class="container">
+    <h2>User Registration Form</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onsubmit()">
+        
+        <div class="form-group">
+            <label>Name:</label><input type="text" #nameRef class="form-control" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label>Contact:</label><input type="text" required class="form-control" formControlName="contact">
+        </div> -->
+        <div formGroupName="address">
+            <div class="form-group">
+                <label> street: </label>
+                <input type="text"  class="form-control" formControlName="street">
+            </div>
+            <div class="form-group">
+                <label> post: </label>
+                <input type="text"  class="form-control" formControlName="postalcode">
+            </div>
+
+        </div>
+        <button [disabled]="!userForm.valid" type="submit" class="btn btn-success">Submit</button>
+
+
+        
+        
+        <!-- <div formGroupName="address">
+
+        <div class="form-group">
+            <label>Street:</label><input type="text" required class="form-control" formControlName="street">
+        </div>
+
+        <div class="form-group">
+            <label>PostalCode:</label><input type="text" required class="form-control" formControlName="postalcode">
+
+        </div> 
+
+        </div>
+
+        <button [disabled]="!userForm.valid" type="submit" class="btn btn-success">Submit</button> -->
+    </form>
+</div>
